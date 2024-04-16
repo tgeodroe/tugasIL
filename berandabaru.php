@@ -1,5 +1,12 @@
 <?php
 session_start(); // Mulai sesi
+if (isset($_SESSION['student_just_entered'])) {
+    echo '<div style="background-color: #ccffcc; color: black; padding: 10px; text-align: center;">' . $_SESSION['student_just_entered'] . '</div>';
+    // Clear the session variable after displaying the message
+    unset($_SESSION['student_just_entered']);
+}
+
+// Display notification if NISN has already been submitted today
 if (isset($_SESSION['nisn_already_submitted'])) {
     echo '<div style="background-color: #ffcc00; color: black; padding: 10px; text-align: center;">' . $_SESSION['nisn_already_submitted'] . '</div>';
     // Clear the session variable after displaying the message
