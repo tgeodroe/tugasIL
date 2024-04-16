@@ -99,7 +99,10 @@ td{
 th {
     background-color: #b8e593a7;
 }
-
+table th, table td {
+    width: 50%; /* Each column will take up 50% of the table width */
+    text-align: center; /* Center-align the text in the cells */
+}
 p{
     background-color: #ffe03198;
 }
