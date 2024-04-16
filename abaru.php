@@ -42,8 +42,10 @@ if ($result->num_rows > 0) {
         exit(); // Make sure to exit after redirection
     } else {
         // Insert data into tb_menampilkan if NISN has not been submitted today
-        $insert_sql = "INSERT INTO tb_menampilkan (nisn, nama, kelas) VALUES ('$student_id', '$student_name', '$student_class')";
+        $insert_sql = "INSERT INTO tb_menampilkan (nisn, nama, kelas, waktu_kehadiran) VALUES ('$student_id', '$student_name', '$student_class', NOW())";
         if ($conn->query($insert_sql) === TRUE) {
+            // Set the session message with the student's name and redirect to beranda.php
+            $_SESSION['student_just_entered'] = "$student_name baru masuk";
             header("Location: beranda.php");
             exit();
         } else {
